@@ -1,0 +1,13 @@
+.container {
+    height: 85%;
+    background-color: #333130;
+}
+
+.mat-sidenav {    
+    background-color: #494644;
+    color: #FAF5F4;
+}
+
+i{
+    padding-right: 10px;
+}

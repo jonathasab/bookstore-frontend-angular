@@ -1,0 +1,19 @@
+.home {
+  background-color: #494644;
+  color: #faf5f4;
+  margin: 1rem auto;
+  width: 95%;
+}
+
+@media (max-width: 460px) {
+  .home {
+    width: 80%;
+  }
+}
+
+@media (max-width: 770px) {
+    .home {
+      width: 90%;
+    }
+  }
+  
