@@ -4,18 +4,18 @@ import { Categoria } from '../categoria.model';
 import { CategoriaService } from '../categoria.service';
 
 @Component({
-  selector: 'app-categoria-delete',
-  templateUrl: './categoria-delete.component.html',
-  styleUrls: ['./categoria-delete.component.css']
+  selector: 'app-categoria-update',
+  templateUrl: './categoria-update.component.html',
+  styleUrls: ['./categoria-update.component.css']
 })
-export class CategoriaDeleteComponent implements OnInit {
+export class CategoriaUpdateComponent implements OnInit {
 
   categoria : Categoria = {
     id: '',
     nome: '',
     descricao: ''
   }
-
+  
   constructor(private service: CategoriaService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -30,16 +30,18 @@ export class CategoriaDeleteComponent implements OnInit {
     })
   }
 
-  DeleteCancel():void{
-    this.router.navigate(['categorias']);
+  Update():void{
+    this.service.Update(this.categoria).subscribe((resp) =>{
+        this.router.navigate(['categorias']);
+        this.service.Mensagem('Categoria Atualizada com sucesso!');
+    }, err =>{
+      for(let cont = 0; cont < err.error.errors.length; cont++){
+        this.service.Mensagem(err.error.errors[cont].message);
+      }
+    })
   }
 
-  Delete():void{
-    this.service.Delete(this.categoria.id!).subscribe((resp) => {
-      this.router.navigate(['categorias']);
-      this.service.Mensagem("Categoria deletada com sucesso!")
-    }, err =>{
-        this.service.Mensagem(err.error.errors);
-    })
+  UpdateCancel():void{
+    this.router.navigate(['categorias']);
   }
 }
