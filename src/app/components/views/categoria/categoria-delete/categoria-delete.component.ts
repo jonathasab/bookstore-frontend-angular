@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Categoria } from '../categoria.model';
+import { CategoriaService } from '../categoria.service';
+
+@Component({
+  selector: 'app-categoria-delete',
+  templateUrl: './categoria-delete.component.html',
+  styleUrls: ['./categoria-delete.component.css']
+})
+export class CategoriaDeleteComponent implements OnInit {
+
+  categoria : Categoria = {
+    id: '',
+    nome: '',
+    descricao: ''
+  }
+
+  constructor(private service: CategoriaService, private route: ActivatedRoute, private router: Router) { }
+
+  ngOnInit(): void {
+    this.categoria.id = this.route.snapshot.paramMap.get('id')!;
+    this.FindById();
+  }
+
+  FindById(): void
+  {
+    this.service.FindbyId(this.categoria.id!).subscribe((resp) => {
+      this.categoria = resp;
+    })
+  }
+
+  DeleteCancel():void{
+    this.router.navigate(['categorias']);
+  }
+
+  Delete():void{
+    this.service.Delete(this.categoria.id!).subscribe((resp) => {
+      this.router.navigate(['categorias']);
+      this.service.Mensagem("Categoria deletada com sucesso!")
+    })
+  }
+
+}
