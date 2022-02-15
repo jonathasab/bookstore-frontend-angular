@@ -14,7 +14,7 @@ export class LivroReadTextComponent implements OnInit {
   livro: Livro = {
     id: "",
     titulo: "",
-    nome_autor: "",
+    nomeAutor: "",
     texto: "",
   };
 
@@ -37,6 +37,6 @@ export class LivroReadTextComponent implements OnInit {
   }
 
   Cancel(): void {
-    this.router.navigate(["livros"]);
+    this.router.navigate([`categorias/${this.idCategoria}/livros`]);
   }
 }

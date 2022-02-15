@@ -15,28 +15,28 @@ export class LivroService {
   constructor(private http: HttpClient, private snack: MatSnackBar) { }
 
   FindByCategoriaId(idCategoria: String):Observable<Livro[]>{
-    const url = `${this.baseUrl}/livros/FindByCategoriaId?idCategoria=${idCategoria}`
+    const url = `${this.baseUrl}livros/FindByCategoriaId?categoria=${idCategoria}`
     return this.http.get<Livro[]>(url)
   }
 
   
   FindbyId(id: String):Observable<Livro>{
-    const url = `${this.baseUrl}/livros/${id}`
+    const url = `${this.baseUrl}livros/${id}`
     return this.http.get<Livro>(url)
   }
 
   Create(livro: Livro, idCategoria: String): Observable<Livro>{
-    const url = `${this.baseUrl}/livros/${idCategoria}`
+    const url = `${this.baseUrl}livros?categoria=${idCategoria}`
     return this.http.post<Livro>(url, livro)
   }
 
   Delete(id: String):Observable<void>{
-    const url = `${this.baseUrl}/livros/${id}`
+    const url = `${this.baseUrl}livros/${id}`
     return this.http.delete<void>(url)
   }
 
   Update(livro: Livro): Observable<void>{
-    const url = `${this.baseUrl}/livros/${livro.id!}`
+    const url = `${this.baseUrl}livros/${livro.id!}`
     return this.http.put<void>(url, livro)
   }
 

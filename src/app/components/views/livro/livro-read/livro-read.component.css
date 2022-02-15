@@ -30,9 +30,14 @@ button {
 
 .delete {
     color: rgb(228,56,56);
-    margin-left: 5rem;
+    margin-left: .5rem;
 }
 
 .mat-header {
     width: 5rem;
+}
+
+.book {
+    color: rgb(37, 125, 240);
+    margin-left: .6rem;
 }

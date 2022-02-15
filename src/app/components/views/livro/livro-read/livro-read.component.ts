@@ -23,7 +23,7 @@ export class LivroReadComponent implements OnInit {
   }
 
   NavegarLivrosCreate(){
-    this.router.navigate([`categorias${this.idCategoria}/livros/create`])
+    this.router.navigate([`categorias/${this.idCategoria}/livros/create`])
   }
 
   FindAll()

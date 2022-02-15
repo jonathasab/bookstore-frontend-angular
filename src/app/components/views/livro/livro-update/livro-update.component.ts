@@ -12,14 +12,14 @@ import { LivroService } from '../livro.service';
 export class LivroUpdateComponent implements OnInit {
 
   titulo = new FormControl('', [Validators.minLength(3)])
-  nome_autor = new FormControl('', [Validators.minLength(3)])
+  nomeAutor = new FormControl('', [Validators.minLength(3)])
   texto = new FormControl('', [Validators.minLength(10)])
   idCategoria : String = '';
 
   livro : Livro ={
     id!: '',
     titulo: '',
-    nome_autor: '',
+    nomeAutor: '',
     texto: ''
   }
 
@@ -43,7 +43,7 @@ export class LivroUpdateComponent implements OnInit {
     {
       return 'O campo Título deve conter entre 3 e 100 caracteres'
     }
-    if(this.nome_autor.invalid)
+    if(this.nomeAutor.invalid)
     {
       return 'O campo Nome do Autor deve conter entre 3 e 100 caracteres'
     } 
@@ -66,7 +66,7 @@ export class LivroUpdateComponent implements OnInit {
 }
 
 UpdateCancel():void{
-  this.router.navigate(['livros']);
+  this.router.navigate([`categorias/${this.idCategoria}/livros`]);
 }
 
 }

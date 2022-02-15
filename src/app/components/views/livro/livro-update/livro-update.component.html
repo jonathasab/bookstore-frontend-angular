@@ -7,8 +7,8 @@
     </mat-form-field>
     <mat-form-field class="form">
         <mat-label>Nome Autor</mat-label>
-        <input matInput [formControl]="nome_autor" required [(ngModel)]="livro.nome_autor" name="nome" placeholder="Ex. Jonathas"maxlength="100">
-        <mat-error *ngIf="nome_autor.invalid">{{GetMessage()}}</mat-error>
+        <input matInput [formControl]="nomeAutor" required [(ngModel)]="livro.nomeAutor" name="nome" placeholder="Ex. Jonathas"maxlength="100">
+        <mat-error *ngIf="nomeAutor.invalid">{{GetMessage()}}</mat-error>
     </mat-form-field>
     <mat-form-field class="form" appearance="fill">
         <mat-label>Texto</mat-label>
