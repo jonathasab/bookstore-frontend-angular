@@ -30,9 +30,11 @@ import { CategoriaUpdateComponent } from './components/views/categoria/categoria
 import { LivroReadComponent } from './components/views/livro/livro-read/livro-read.component';
 import { LivroCreateComponent } from './components/views/livro/livro-create/livro-create.component';
 import { LivroUpdateComponent } from './components/views/livro/livro-update/livro-update.component';
+import { LivroDeleteComponent } from './components/views/livro/livro-delete/livro-delete.component';
+import { LivroReadTextComponent } from './components/views/livro/livro-read-text/livro-read-text.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, NavComponent, HomeComponent, CategoriaReadComponent, CategoriaCreateComponent, CategoriaDeleteComponent, CategoriaUpdateComponent, LivroReadComponent, LivroCreateComponent, LivroUpdateComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, NavComponent, HomeComponent, CategoriaReadComponent, CategoriaCreateComponent, CategoriaDeleteComponent, CategoriaUpdateComponent, LivroReadComponent, LivroCreateComponent, LivroUpdateComponent, LivroDeleteComponent, LivroReadTextComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
