@@ -1,0 +1,22 @@
+<form>
+    <h1>Criando Categoria</h1>
+    <mat-form-field class="form">
+        <mat-label>Título</mat-label>
+        <input matInput [formControl]="titulo" required [(ngModel)]="livro.titulo" name="titulo" placeholder="Ex. Curso Spring boot com Angular 10" maxlength="100">
+        <mat-error *ngIf="titulo.invalid">{{GetMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form">
+        <mat-label>Nome Autor</mat-label>
+        <input matInput [formControl]="nome_autor" required [(ngModel)]="livro.nome_autor" name="nome" placeholder="Ex. Jonathas"maxlength="100">
+        <mat-error *ngIf="nome_autor.invalid">{{GetMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form" appearance="fill">
+        <mat-label>Texto</mat-label>
+        <textarea matInput [formControl]="texto" required  [(ngModel)]="livro.texto" name="texto" placeholder="Ex. Lorem ipsum"maxlength="2000000"></textarea>
+        <mat-error *ngIf="texto.invalid">{{GetMessage()}}</mat-error>
+    </mat-form-field>
+    <div class="buttons">
+        <button [disable]="GetMessage()"  class="mat-elevation-z8" mat-stroked-button (click) = "CreateCancel()" color="warn">Cancelar</button>
+        <button class="mat-elevation-z8" mat-stroked-button (click) ="Create()">Salvar</button>
+    </div>  
+</form>

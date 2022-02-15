@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Livro } from '../Livro.model';
+import { Livro } from '../livro.model';
 import { LivroService } from '../livro.service';
 
 @Component({
@@ -10,6 +10,7 @@ import { LivroService } from '../livro.service';
 })
 export class LivroReadComponent implements OnInit {
 
+  idCategoria : String = '';
   
   displayedColumns: string[] = ['id', 'titulo', 'livros', 'acoes'];
   livros : Livro[] = [];
@@ -17,18 +18,17 @@ export class LivroReadComponent implements OnInit {
   constructor(private service : LivroService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.idCategoria = this.route.snapshot.paramMap.get('idCategoria')!;
     this.FindAll();
   }
 
   NavegarLivrosCreate(){
-    this.router.navigate(["categorias/create"])
+    this.router.navigate([`categorias${this.idCategoria}/livros/create`])
   }
 
   FindAll()
-  {    
-    let id = this.route.snapshot.paramMap.get('id')!;
-
-    this.service.FindByCategoriaId(id).subscribe(resp => {
+  {   
+    this.service.FindByCategoriaId(this.idCategoria).subscribe(resp => {
         this.livros = resp;
     })
   }

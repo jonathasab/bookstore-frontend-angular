@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Livro } from './Livro.model';
+import { Livro } from './livro.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +25,8 @@ export class LivroService {
     return this.http.get<Livro>(url)
   }
 
-  Create(livro: Livro): Observable<Livro>{
-    const url = `${this.baseUrl}\livros`
+  Create(livro: Livro, idCategoria: String): Observable<Livro>{
+    const url = `${this.baseUrl}/livros/${idCategoria}`
     return this.http.post<Livro>(url, livro)
   }
 

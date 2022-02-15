@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -28,14 +28,17 @@ import { CategoriaCreateComponent } from './components/views/categoria/categoria
 import { CategoriaDeleteComponent } from './components/views/categoria/categoria-delete/categoria-delete.component';
 import { CategoriaUpdateComponent } from './components/views/categoria/categoria-update/categoria-update.component';
 import { LivroReadComponent } from './components/views/livro/livro-read/livro-read.component';
+import { LivroCreateComponent } from './components/views/livro/livro-create/livro-create.component';
+import { LivroUpdateComponent } from './components/views/livro/livro-update/livro-update.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, NavComponent, HomeComponent, CategoriaReadComponent, CategoriaCreateComponent, CategoriaDeleteComponent, CategoriaUpdateComponent, LivroReadComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, NavComponent, HomeComponent, CategoriaReadComponent, CategoriaCreateComponent, CategoriaDeleteComponent, CategoriaUpdateComponent, LivroReadComponent, LivroCreateComponent, LivroUpdateComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
