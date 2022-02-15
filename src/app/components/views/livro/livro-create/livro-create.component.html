@@ -16,7 +16,7 @@
         <mat-error *ngIf="texto.invalid">{{GetMessage()}}</mat-error>
     </mat-form-field>
     <div class="buttons">
-        <button [disable]="GetMessage()"  class="mat-elevation-z8" mat-stroked-button (click) = "CreateCancel()" color="warn">Cancelar</button>
-        <button class="mat-elevation-z8" mat-stroked-button (click) ="Create()">Salvar</button>
+        <button class="mat-elevation-z8" mat-stroked-button (click) = "CreateCancel()" color="warn">Cancelar</button>
+        <button [disabled]="GetMessage()" class="mat-elevation-z8" mat-stroked-button (click) ="Create()">Salvar</button>
     </div>  
 </form>
